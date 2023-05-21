@@ -1,0 +1,29 @@
+<mat-drawer-container class="example-container" hasBackdrop="false">
+  <mat-drawer #drawer mode="side">
+    <button mat-raised-button (click)="onClickHome()">Home</button>
+    <button mat-raised-button (click)="onClickInformation()">
+      Information
+    </button>
+    <button mat-raised-button (click)="onClickImages()">Images</button>
+    <button mat-raised-button (click)="onClickTrainers()">Images</button>
+    <button class="LastButton" (click)="onClickDelete()">Delete</button>
+  </mat-drawer>
+  <mat-drawer-content>
+    <button mat-raised-button (click)="drawer.toggle()" (click)="onClick()">
+      <mat-icon>{{ arrow }}</mat-icon>
+    </button>
+    <div *ngIf="containerNr == 0">
+      <app-owner-page-home></app-owner-page-home>
+    </div>
+    <div *ngIf="containerNr == 1">
+      <app-owner-page-information></app-owner-page-information>
+    </div>
+    <div *ngIf="containerNr == 2">
+      <app-owner-page-images></app-owner-page-images>
+    </div>
+    <div *ngIf="containerNr == 3">
+      <app-owner-page-trainers></app-owner-page-trainers>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+<simple-notifications></simple-notifications>

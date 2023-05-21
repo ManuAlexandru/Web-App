@@ -1,0 +1,42 @@
+<div class="Action">
+  <button mat-raised-button color="primary" (click)="hiddenfileinput.click()">
+    Add Images
+  </button>
+  <button mat-raised-button color="warn" (click)="SubmitForDelete()">
+    Delete
+  </button>
+  <button
+    *ngIf="activeButton == true"
+    mat-raised-button
+    type="submit"
+    [disabled]="imageGroup.invalid"
+    (click)="submit()"
+  >
+    Send
+  </button>
+</div>
+<div class="row">
+  <div class="column" *ngFor="let photo of photArr">
+    <img
+      class="default"
+      [ngClass]="{ active: photo.isSelected }"
+      src="{{ photo.route }}"
+      alt="{{ photo.fileName }}"
+      (click)="onClickPage(photo)"
+    />
+  </div>
+</div>
+
+<div class="AddImages" [formGroup]="imageGroup">
+  <input
+    style="display: none"
+    type="file"
+    multiple
+    accept=".jpg"
+    formControlName="file"
+    (change)="onFileChange($event)"
+    #hiddenfileinput
+  />
+</div>
+
+<div></div>

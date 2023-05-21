@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <span><mat-icon>image_search</mat-icon>FindYourGym</span>
+  <div class="spacer"></div>
+
+  <a mat-button routerLink="">Home</a>
+  <a mat-button routerLink="Gyms">Gyms</a>
+  <a mat-button routerLink="Trainers">Trainers</a>
+  <a mat-button routerLink="contact">Contact</a>
+  <a mat-button routerLink="profile">Profile</a>
+  <div *ngIf="isAuthenticated && authUser.checkAdmin()">
+    <a mat-button routerLink="admin">Admin</a>
+  </div>
+  <div *ngIf="isAuthenticated && authUser.checkOwner()">
+    <a mat-button (click)="CheckIfOwnerPageCreated()">OwnerPage</a>
+  </div>
+  <div *ngIf="isAuthenticated && authUser.checkTrainer()">
+    <a mat-button (click)="CheckIfTrainerPageCreated()">TrainerPage</a>
+  </div>
+  <a mat-button routerLink="about">About us</a>
+  <div *ngIf="!isAuthenticated">
+    <a mat-raised-button routerLink="auth">Sign Up</a>
+  </div>
+  <div *ngIf="isAuthenticated">
+    <a mat-raised-button color="warn" (click)="logout()">Log Out</a>
+  </div>
+</mat-toolbar>

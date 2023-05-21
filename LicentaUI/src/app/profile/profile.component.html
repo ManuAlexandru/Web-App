@@ -1,0 +1,185 @@
+<div class="bg-stone-800 h-full w-full flex justify-center items-center">
+  <div class="h-full w-[40%] bg-white flex justify-center">
+    <div>
+      <!-- <form [formGroup]="imageForm">
+         Avatar
+        <div class="flex flex-auto items-center mt-9">
+          <div
+            class="relative flex items-center justify-center w-32 h-32 rounded-full overflow-hidden ring-4 ring-bg-card"
+          >
+             Upload / Remove avatar 
+            <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+            <div class="absolute inset-0 flex items-center justify-center z-20">
+              <div>
+                <input
+                  id="avatar-file-input"
+                  class="absolute h-0 w-0 opacity-0 invisible pointer-events-none"
+                  type="file"
+                  [multiple]="false"
+                  [accept]="'image/jpeg, image/png'"
+                  (change)="onFileChange($event)"
+                  #avatarFileInput
+                />
+                <label
+                  class="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer hover:bg-hover"
+                  for="avatar-file-input"
+                  matRipple
+                >
+                  <mat-icon class="text-white">photo_camera</mat-icon>
+                </label>
+              </div>
+              <div>
+                <button mat-icon-button (click)="removeAvatar()">
+                  <mat-icon class="text-gray-800">delete</mat-icon>
+                </button>
+              </div>
+            </div>
+             Image/Letter 
+             If image uploded by user show that image 
+            <div *ngIf="!getProfileImage?.value && getImage?.value">
+              <img
+                class="object-cover w-full h-full"
+                src="{{ getImage?.value }}"
+              />
+            </div>
+             If there is already an image get the route and user did not choosed another one 
+            <div *ngIf="getProfileImage?.value">
+              <img class="object-cover w-full h-full" [src]="avatarFileUrl" />
+            </div>
+
+            <div
+              class="flex items-center justify-center w-full h-full rounded overflow-hidden uppercase text-8xl font-bold leading-none bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200"
+              *ngIf="!getProfileImage?.value && !getImage?.value"
+            >
+              A
+            </div>
+          </div>
+        </div>
+      </form> 
+     -->
+
+      <div class="mt-9">
+        <div class="flex flex-row">
+          <form [formGroup]="nameForm">
+            <!--First Name -->
+            <div class="mt-8">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>First Name</mat-label>
+
+                <input
+                  matInput
+                  formControlName="firstName"
+                  [placeholder]="'First Name'"
+                  [spellcheck]="false"
+                />
+                <mat-error
+                  *ngIf="getFirstName?.invalid && getFirstName?.touched"
+                >
+                  This field is mandatory!
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Last Name -->
+            <div class="mt-8">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Last Name</mat-label>
+
+                <input
+                  matInput
+                  formControlName="lastName"
+                  [placeholder]="'Last Name'"
+                  [spellcheck]="false"
+                />
+                <mat-error *ngIf="getLastName?.invalid && getLastName?.touched">
+                  This field is mandatory!
+                </mat-error>
+              </mat-form-field>
+              <div class="flex justify-center items-center">
+                <button
+                  mat-raised-button
+                  type="submit"
+                  color="primary"
+                  [disabled]="nameForm.invalid"
+                  (click)="submitName()"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div>
+          <form [formGroup]="passwordForm">
+            <!-- Current Password -->
+            <div class="mt-8">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Current Password</mat-label>
+
+                <input
+                  matInput
+                  formControlName="currentPassword"
+                  [placeholder]="'Current Password'"
+                  [spellcheck]="false"
+                  [type]="hideCurrentPassword ? 'password' : 'text'"
+                />
+                <mat-icon
+                  matSuffix
+                  (click)="hideCurrentPassword = !hideCurrentPassword"
+                  >{{
+                    hideCurrentPassword ? "visibility_off" : "visibility"
+                  }}</mat-icon
+                >
+                <mat-error
+                  *ngIf="
+                    getCurrentPassword?.invalid && getCurrentPassword?.touched
+                  "
+                >
+                  This field is mandatory!
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!-- New Password -->
+            <div class="mt-8">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>New Password </mat-label>
+
+                <input
+                  matInput
+                  formControlName="newPassword"
+                  [placeholder]="'New Password'"
+                  [spellcheck]="false"
+                  [type]="hideNewPassword ? 'password' : 'text'"
+                />
+                <mat-icon
+                  matSuffix
+                  (click)="hideNewPassword = !hideNewPassword"
+                  >{{
+                    hideNewPassword ? "visibility_off" : "visibility"
+                  }}</mat-icon
+                >
+                <mat-error
+                  *ngIf="getNewPassword?.invalid && getNewPassword?.touched"
+                >
+                  This field is mandatory!
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="flex justify-center items-center">
+              <button
+                mat-raised-button
+                type="submit"
+                color="primary"
+                [disabled]="passwordForm.invalid"
+                (click)="submitPassword()"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<simple-notifications></simple-notifications>

@@ -1,0 +1,99 @@
+<div class="flex w-full h-full place-content-center text-center">
+  <div class="flex flex-col w-full">
+    <div class="flex mt-8 place-content-center">
+      <p class="decoration-solid text-[40px] text-gray-500">
+        {{ gym.gymName }}
+      </p>
+    </div>
+    <div class="flex place-content-center mt-8">
+      <div class="w-[30%]">{{ gym.description }}</div>
+    </div>
+    <div class="flex flex-row justify-around mt-12">
+      <div>
+        <table class="border-spacing-1">
+          <tr class="border-spacing-1">
+            <th
+              class="border-spacing-1 text-white bg-sky-500 border-2 border-black w-[6rem]"
+            >
+              Price/Month
+            </th>
+            <th class="border-spacing-1 border-2 border-black w-[8rem]">
+              {{ gym.price + " " + gym.typeOfMoney }}
+            </th>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <table>
+          <tr class="border-spacing-1 border-2 border-black">
+            <th class="border-spacing-1 border-2 border-black w-[8rem]">
+              Card Payment
+            </th>
+            <th class="border-spacing-1 border-2 border-black w-[6rem]">
+              Seven Card
+            </th>
+          </tr>
+          <tr class="border-spacing-1 border-2 border-black">
+            <td class="border-spacing-1 border-2 border-black text-center">
+              {{ gym.isCreditCardPaymentPossible ? "Yes" : "No" }}
+            </td>
+            <td class="border-spacing-1 border-2 border-black text-center">
+              {{ gym.hasSevenCard ? "Yes" : "No" }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="flex flex-row justify-around mt-12">
+      <div>
+        <table>
+          <tr class="border-spacing-1 border-2 border-black">
+            <th class="border-spacing-1 border-2 border-black w-[8rem]">
+              Country
+            </th>
+            <th class="border-spacing-1 border-2 border-black w-[6rem]">
+              {{ gym.country }}
+            </th>
+          </tr>
+          <tr class="border-spacing-1 border-2 border-black">
+            <td class="border-spacing-1 border-2 border-black text-center">
+              City
+            </td>
+            <td class="border-spacing-1 border-2 border-black text-center">
+              {{ gym.city }}
+            </td>
+          </tr>
+          <tr class="border-spacing-1 border-2 border-black">
+            <td class="border-spacing-1 border-2 border-black text-center">
+              Address
+            </td>
+            <td class="border-spacing-1 border-2 border-black text-center">
+              {{ gym.addres }}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- <div class="border-2 bg-sky-500 border-sky-700 w-[14rem] h-[14rem]">
+        Check in Details
+      </div> -->
+      <div class="border-2 border-sky-700 w-[14rem] h-[14rem]">
+        <img [src]="getMapImageUrl()" />
+      </div>
+    </div>
+
+    <div class="mt-12 h-[14rem]">
+      <p class="text-center font-medium text-[2.5rem] text-blue-800">
+        GYM PHOTOS
+      </p>
+      <div class="flex flex-wrap mr-16 ml-16">
+        <div class="mt-8" *ngFor="let photo of gym.photos">
+          <img
+            class="w-[15rem] mx-4 h-[15rem]"
+            src="{{ photo.route }}"
+            alt="{{ photo.fileName }}"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

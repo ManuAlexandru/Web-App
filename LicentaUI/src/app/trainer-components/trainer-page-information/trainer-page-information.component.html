@@ -1,0 +1,103 @@
+<div class="flex flex-col w-screen h-screen">
+  <div class="flex place-content-center w-full h-screen">
+    <div
+      class="w-[25%] max-h-fit p-[2%] border-solid rounded border-white border-2"
+    >
+      <form [formGroup]="formGroup" class="w-full">
+        <div class="mt-4">
+          <mat-form-field class="appearance-fill w-full">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="firstName"
+              formControlName="firstName"
+              required
+            />
+            <mat-error *ngIf="getFirstName?.invalid && getFirstName?.touched">
+              This field is mandatory!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="mt-4">
+          <mat-form-field class="appearance-fill w-full">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="lastName"
+              formControlName="lastName"
+              required
+            />
+            <mat-error *ngIf="getLastName?.invalid && getLastName?.touched">
+              This field is mandatory!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="mt-4">
+          <mat-form-field class="w-full">
+            <mat-label>Description</mat-label>
+            <textarea
+              matInput
+              formControlName="description"
+              placeholder="Describe your Gym"
+            ></textarea>
+            <mat-error
+              *ngIf="getDescription?.invalid && getDescription?.touched"
+            >
+              This field is mandatory!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mt-4">
+          <mat-form-field class="appearance-fill w-full">
+            <mat-label>Country</mat-label>
+            <input
+              matInput
+              placeholder="Country"
+              formControlName="country"
+              required
+            />
+            <mat-error *ngIf="getCountry?.invalid && getCountry?.touched">
+              This field is mandatory!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mt-4">
+          <mat-form-field class="appearance-fill w-full">
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              placeholder="City"
+              formControlName="city"
+              required
+            />
+            <mat-error *ngIf="getCity?.invalid && getCity?.touched">
+              This field is mandatory!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mt-4">
+          <mat-form-field class="appearance-fill w-full">
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              placeholder="Address"
+              formControlName="address"
+              required
+            />
+            <mat-error *ngIf="getAddress?.invalid && getAddress?.touched">
+              This field is mandatory!
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+      <div class="flex mt-4 place-content-center mb-0 pb-0">
+        <button mat-raised-button color="primary" (click)="onsubmit()">
+          Edit Information
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

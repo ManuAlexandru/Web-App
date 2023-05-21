@@ -1,0 +1,37 @@
+.example-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  background-color: rgb(224, 224, 224);
+  flex-direction: column;
+  align-items: flex-start;
+}
+mat-drawer {
+  background-color: #3f51b5;
+  /* border-radius: 10px; */
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+mat-drawer .mat-raised-button {
+  width: 100%;
+  height: 25%;
+  background-color: #5968bb;
+  color: white;
+  border-radius: 0%;
+  border-width: 1px;
+  outline-style: solid;
+  outline-color: rgb(14, 11, 11);
+  outline-width: 1px;
+}
+mat-drawer .mat-raised-button .LastButton {
+  border-radius: 3%;
+}
+.mat-raised-button {
+  color: #3f51b5;
+}

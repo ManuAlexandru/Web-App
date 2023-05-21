@@ -1,0 +1,54 @@
+<div
+  class="w-full h-full"
+  style="background-image: url('assets/img/RegisterPage.jpg')"
+>
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form" [formGroup]="myForm">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="firstName" formControlName="firstName" />
+          <mat-error *ngIf="getfirstName?.invalid && getfirstName?.touched">
+            This field is mandatory!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="lastName" formControlName="lastName" />
+          <mat-error *ngIf="getlastName?.invalid && getlastName?.touched">
+            This field is mandatory!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Email" formControlName="email" />
+          <mat-error *ngIf="getEmail?.invalid && getEmail?.touched">
+            This field is mandatory!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="password"
+            formControlName="password"
+            [type]="hide ? 'password' : 'text'"
+          />
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+          <mat-error *ngIf="getPassword?.invalid && getPassword?.touched">
+            This field is mandatory!
+          </mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          [disabled]="myForm.invalid"
+          (click)="onSubmit()"
+        >
+          register
+        </button>
+        <p class="message">
+          Already registered? <a routerLink="../login">Sign In</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+<simple-notifications></simple-notifications>

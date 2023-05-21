@@ -1,0 +1,45 @@
+<form class="InformationContainer" [formGroup]="programGroup">
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Program Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-error *ngIf="getName?.invalid && getName?.touched">
+      This field is mandatory!
+    </mat-error>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-error *ngIf="getPrice?.invalid && getPrice?.touched">
+      This field is mandatory!
+    </mat-error>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Services</mat-label>
+      <input matInput formControlName="services" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-error *ngIf="getServices?.invalid && getServices?.touched">
+      This field is mandatory!
+    </mat-error>
+  </p>
+  <mat-label></mat-label>
+
+  <button
+    mat-raised-button
+    [disabled]="programGroup.invalid"
+    (click)="submit()"
+  >
+    Save
+  </button>
+</form>
+<simple-notifications></simple-notifications>

@@ -1,0 +1,66 @@
+.column {
+  float: left;
+  width: 150px;
+  height: 150px;
+  padding: 5px;
+}
+.column img {
+  width: 80%;
+  height: 80%;
+}
+/* .row .column img .default{
+
+border: 7px;
+border-style: dashed;
+border-color: blue;
+  } */
+.row .column .default {
+  border-radius: 10px;
+  width: 80%;
+  height: 80%;
+  border-style: none;
+}
+.row .column .active {
+  border: 5px;
+  border-style: double;
+  border-color: blue;
+}
+
+.row .column .centered {
+  position: relative;
+  text-align: center;
+  color: rgb(255, 255, 127);
+}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.GeneralContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.Action {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.alert {
+  color: red;
+}
+.example-form-field {
+  width: 100%;
+}
+#FileInput {
+  display: none;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
