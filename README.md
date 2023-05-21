@@ -73,9 +73,11 @@ As the course advances, all languages, tools and technologies used will be poste
 ## Reminder
 
 Due to financial considerations, the following items will be excluded from the project:
-The MongoDb connection string.
-The Mail Sender and GoogleMapApi API keys.
 
+ <ul>
+    <li> The MongoDb connection string</li>
+<li>The Mail Sender and GoogleMapApi API keys.</li>
+  </ul>
 <!-- LICENSE -->
 
 ## License
